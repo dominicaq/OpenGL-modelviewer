@@ -6,9 +6,10 @@ Created to learn about computer graphics
 * Transformation & Time classes
 * load .obj files and bind textures to them
 
+Switch to x86 in visual studio to run
 ![Demo](/images/example.png)
 
 # Libraries used: 
-1. tinyobjloader
-1. ImGUI
-1. stbi(Image loader)
+* tinyobjloader
+* ImGUI
+* stbi(Image loader)
