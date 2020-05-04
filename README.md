@@ -8,7 +8,7 @@ Created to learn about computer graphics
 
 ![Demo](/images/example.png)
 
-Libraries used: 
+# Libraries used: 
 1. tinyobjloader
 1. ImGUI
 1. stbi(Image loader)
