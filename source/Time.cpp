@@ -1,10 +1,10 @@
-#include "Time.h"
+#include "GameTime.h"
 #include "GLFW/glfw3.h"
 
-float Time::m_deltaTime;
-float Time::m_lastFrame;
+float GameTime::m_deltaTime;
+float GameTime::m_lastFrame;
 
-void Time::Update()
+void GameTime::Update()
 {
 	// Delta time
 	float currentFrame = glfwGetTime();
@@ -12,7 +12,7 @@ void Time::Update()
 	m_lastFrame = currentFrame;
 }
 
-float Time::deltaTime()
+float GameTime::deltaTime()
 {
 	return m_deltaTime;
 }

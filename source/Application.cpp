@@ -1,8 +1,8 @@
 #include "Application.h"
 
 const char* APP_TITLE = "3D engine";
-const unsigned int SCR_WIDTH = 1920;
-const unsigned int SCR_HEIGHT = 1080;
+const unsigned int SCR_WIDTH = 800;
+const unsigned int SCR_HEIGHT = 600;
 
 // Scene
 #include "GameObject/Shader.h"
@@ -10,8 +10,7 @@ const unsigned int SCR_HEIGHT = 1080;
 #include "GameObject/Light.h"
 #include "GameObject/Camera.h"
 
-Application::Application()
-{
+Application::Application() {
 	currentWindow.CreateWindow(APP_TITLE, SCR_WIDTH, SCR_HEIGHT);
 
 	glEnable(GL_CULL_FACE);
@@ -19,19 +18,14 @@ Application::Application()
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Application::Run()
-{
-
+void Application::Run() {
 #pragma region Scene
 	Camera cam;
 	cam.CreateCamera(90.0f, 0.1f, 1000.0f);
 	cam.transform.position = Vector3(0, 0, 2);
 
 	//Shader
-	Shader myShader;
-	myShader.AddVertexShader("Shaders/vertexShader.vert");
-	myShader.AddFragmentShader("Shaders/fragmentShader.frag");
-	myShader.CompileShader();
+	Shader myShader("Shaders/vertexShader.vert", "Shaders/fragmentShader.frag");
 
 	//Model
 	Model torus;
@@ -48,17 +42,17 @@ void Application::Run()
 
 	while (!currentWindow.ShouldClose())
 	{
-		Time::Update();
+		GameTime::Update();
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 
 #pragma region Main Game
-		step += Time::deltaTime();
+		step += GameTime::deltaTime();
 		torus.transform.position.y = sin(step * 2.5) / 2;
-		torus.transform.eulerAngles.z += Time::deltaTime() * 50;
-		torus.transform.eulerAngles.x += Time::deltaTime() * 50;
-		torus.transform.eulerAngles.z += Time::deltaTime() * 50;
+		torus.transform.eulerAngles.z += GameTime::deltaTime() * 50;
+		torus.transform.eulerAngles.x += GameTime::deltaTime() * 50;
+		torus.transform.eulerAngles.z += GameTime::deltaTime() * 50;
 
 #pragma region ImGUI
 		ImGui_ImplOpenGL3_NewFrame();

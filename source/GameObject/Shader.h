@@ -10,33 +10,29 @@
 #include <sstream>
 #include <iostream>
 
-class Shader
-{
+class Shader {
 public:
-    Shader();
+    Shader(const char* vert_path, const char* frag_path);
     ~Shader();
 
     unsigned int getProgram();
-    void Bind() const;
-    void UnBind() const;
-
-    void AddFragmentShader(const char* fileName);
-    void AddVertexShader(const char* fileName);
-    void AddGeometryShader(const char* fileName);
-    void CompileShader();
+    void bind() const;
+    void unbind() const;
 
     // Utility
     Shader& operator= (Shader& shader);
+
+    // Set uniforms
     void setInt(const std::string& name, int value) const;
     void setFloat(const std::string& name, float value) const;
     void setVec3(const std::string& name, Vector3 vec) const;
     void setMat4(const std::string& name, const Matrix4& mat) const;
 
 private:
-    unsigned int program;
+    unsigned int _program;
 
-    std::string ReadFile(const char* filePath);
-    void addProgram(GLenum type, const char* shaderCode);
-    void GetCompileErrors(GLenum type);
+    void printProgramStatus(GLenum type);
+    uint8_t addProgram(const char* shaderCode, GLenum type);
+    uint8_t readFile(const char* fpath, std::string& shader_src);
 };
 #endif

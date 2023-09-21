@@ -48,7 +48,7 @@ void Mesh::Draw(Camera& camera, Transform& transform, Shader& shader)
     shader.setMat4("view", camera.GetViewMatrix());
     shader.setMat4("projection", camera.GetPerspectiveMatrix());
 
-    shader.Bind();
+    shader.bind();
 
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);

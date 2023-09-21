@@ -64,7 +64,7 @@ void Model::Draw(Camera& cam, Shader& shader)
     {
         if (i < textures.size())
         {
-            textures[0].Bind(0);
+            textures[0].bind(0);
         }
 
         meshes[i].Draw(cam, transform, shader);
@@ -80,7 +80,7 @@ void Model::operator=(const Model& model)
 void Model::DeleteModel()
 {
     for (int i = 0; i < textures.size(); i++)
-        textures[i].ClearTexture();
+        textures[i].clearTexture();
 
     for (int i = 0; i < meshes.size(); i++)
         meshes[i].ClearBuffers();

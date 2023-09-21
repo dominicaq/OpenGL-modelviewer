@@ -6,26 +6,21 @@
 
 #include <iostream>
 
-class Texture
-{
+class Texture {
 public:
-	const char* type;
 	Texture(const char* path);
-	void LoadTexture(const char* path);
-	
-	GLuint getID();
+	uint8_t LoadTexture(const char* path);
+	void clearTexture();
 
-	void Bind(unsigned int unit) const;
-	void UnBind() const;
-	
-	inline int GetWidth() const { return m_Width; }
-	inline int GetHeight() const { return m_Height; }
-	void ClearTexture();
+	GLuint getID();
+	int width, height;
+
+	void bind(unsigned int unit) const;
+	void unbind() const;
 
 private:
-	const char* m_TexturePath;
-	unsigned int m_textureID;
-	int m_Width, m_Height, m_numComponents;
+	unsigned int _textureID;
+	int _numComponents;
 };
 
 #endif

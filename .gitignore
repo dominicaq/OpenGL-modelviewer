@@ -1,0 +1,11 @@
+# Visual Studio cache directory
+.vs/
+.vscode/
+
+# Gradle cache directory
+.gradle/
+
+# Builds
+.Debug/
+.Release/
+.x64/

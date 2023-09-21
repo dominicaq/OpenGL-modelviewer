@@ -5,7 +5,7 @@
 #include "GLFW/glfw3.h"
 
 #include "GameObject/Camera.h"
-#include "Time.h"
+#include "GameTime.h"
 #include "Window.h"
 
 class Application
