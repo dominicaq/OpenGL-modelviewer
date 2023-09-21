@@ -2,10 +2,8 @@
 .vs/
 .vscode/
 
-# Gradle cache directory
-.gradle/
-
 # Builds
+
 # Main directory
 .Debug/
 .Release/
@@ -13,5 +11,7 @@
 
 # Sub directory
 .source/Release/
-.source/x64
-.source/Debug
+.source/x64/
+.source/Debug/
+
+# End of builds
