@@ -6,6 +6,12 @@
 .gradle/
 
 # Builds
+# Main directory
 .Debug/
 .Release/
 .x64/
+
+# Sub directory
+.source/Release/
+.source/x64
+.source/Debug
