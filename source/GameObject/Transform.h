@@ -16,15 +16,13 @@ public:
 	Vector3 position;
 	Vector3 eulerAngles;
 
-	Transform(const Vector3& position = Vector3(), const Vector3& eulerAngles = Vector3(), const Vector3& scale = Vector3(1.0f, 1.0f, 1.0f))
-	{
+	Transform(const Vector3& position = Vector3(), const Vector3& eulerAngles = Vector3(), const Vector3& scale = Vector3(1.0f, 1.0f, 1.0f)) {
 		this->position = position;
 		this->scale = scale;
 		this->eulerAngles = eulerAngles;
 	}
 
-	inline Matrix4 GetModelMatrix() const
-	{
+	inline Matrix4 GetModelMatrix() const {
 		Matrix4 rotMatrix(1.0);
 		rotMatrix = glm::rotate(rotMatrix, glm::radians(eulerAngles.x), Vector3(1, 0, 0));
 		rotMatrix = glm::rotate(rotMatrix, glm::radians(eulerAngles.y), Vector3(0, 1, 0));
