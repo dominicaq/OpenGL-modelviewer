@@ -1,8 +1,0 @@
-﻿  Model.cpp
-C:\Users\domin\Desktop\OpenGL-modelviewer\source\GameObject\Model.cpp(63,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\domin\Desktop\OpenGL-modelviewer\source\GameObject\Model.cpp(65,15): warning C4018: '<': signed/unsigned mismatch
-C:\Users\domin\Desktop\OpenGL-modelviewer\source\GameObject\Model.cpp(82,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\domin\Desktop\OpenGL-modelviewer\source\GameObject\Model.cpp(85,23): warning C4018: '<': signed/unsigned mismatch
-  Shader.cpp
-  Generating Code...
-  source.vcxproj -> C:\Users\domin\Desktop\OpenGL-modelviewer\Debug\EngineSolution.exe
