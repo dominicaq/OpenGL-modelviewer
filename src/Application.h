@@ -4,7 +4,9 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
-#include "GameObject/Camera.h"
+#include <memory>
+
+#include "../gameobject/Camera.h"
 #include "GameTime.h"
 #include "Window.h"
 
@@ -12,9 +14,9 @@ class Application
 {
 public:
 	Application();
-	void Run();
-	void HandleEvents();
+	~Application();
+	void run();
 private:
-	Window currentWindow;
+	std::unique_ptr<Window> _currentWindow;
 };
 #endif

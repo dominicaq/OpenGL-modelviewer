@@ -6,20 +6,22 @@ const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 // Scene
-#include "GameObject/Shader.h"
-#include "GameObject/Model.h"
-#include "GameObject/Light.h"
-#include "GameObject/Camera.h"
+#include "../gameobject/Shader.h"
+#include "../gameobject/Model.h"
+#include "../gameobject/Light.h"
+#include "../gameobject/Camera.h"
 
 Application::Application() {
-	currentWindow.CreateWindow(APP_TITLE, SCR_WIDTH, SCR_HEIGHT);
+	_currentWindow = std::make_unique<Window>(APP_TITLE, SCR_WIDTH, SCR_HEIGHT);
 
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_BACK);
 	glEnable(GL_DEPTH_TEST);
 }
 
-void Application::Run() {
+Application::~Application() {}
+
+void Application::run() {
 #pragma region Scene
 	Camera cam;
 	cam.CreateCamera(90.0f, 0.1f, 1000.0f);
@@ -41,7 +43,7 @@ void Application::Run() {
 	float step = 0;
 #pragma endregion
 
-	while (!currentWindow.ShouldClose())
+	while (!_currentWindow->shouldClose())
 	{
 		GameTime::Update();
 
@@ -78,8 +80,6 @@ void Application::Run() {
 		torus.Draw(cam, myShader);
 #pragma endregion
 
-		currentWindow.Update();
+		_currentWindow->update();
 	}
-
-	currentWindow.CleanUp();
 }
